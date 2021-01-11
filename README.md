@@ -34,7 +34,7 @@ Open the application by double-clicking the icon in macOS, running `EEMBC Benchm
 
 The first line in the User Console indicates the temporary directory and root used by the framework. See below for notes on customizing this.
 
-Take note of the directory (in red) in the center of the screen. This is a work directory that has been created. Unzip the `ulp-mlperf.zip` file into that directory to create the following tree structure. Note these files are bogus random binary data and are provided for testing `kws01`. Since the framework determines where to look for input files based on the model response from the DUT, you can rename this to match whatever NN you are targeting.
+Take note of the directory (in red) in the center of the screen. This is a work directory that has been created. Unzip the `dummyfiles_ulp-mlperf.zip` file into that directory to create the following tree structure. Note these files are bogus random binary data and are provided for testing `kws01`. Since the framework determines where to look for input files based on the model response from the DUT, you can rename this to match whatever NN you are targeting.
 
 ![Figure 2. Input file directory](img/input-folder.png)
 
@@ -59,7 +59,7 @@ If you made it this far, you can now develop & communicate with your firmware. P
 First, identify your $HOME directory. On Linux and macOS this is `$HOME`, on Win10 it is `%USERPROFILE%`. Create a file in this folder called `.eembc.json`:
 
 ~~~
-% cat $HOME/.eembc.json 
+% cat $HOME/.eembc.json
 {
     "root": "/Users/ptorelli/nobackup",
 }
