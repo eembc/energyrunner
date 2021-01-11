@@ -67,6 +67,10 @@ First, identify your $HOME directory. On Linux and macOS this is `$HOME`, on Win
 
 Change `root` to wherever you want the runner to generate the `eembc/runner/{sessions,temp,benchmarks}` directories. It will create these the next time the framework starts.
 
+# Hash Check
+
+MD5 hashes are provided in the `dist` folder. Run `md5sum --check hashes.md5` from the `dist` folder to verify
+
 # Copyright License
 
 This software is the copyright of EEMBC, and is currently released under Apache 2.0.
