@@ -8,12 +8,11 @@ What it does:
 
 1. Detects compatible USB devices (115200 baud, 8N1, responds to firmware queries defined by the [EEMBC/tinyML firmware](https://github.com/eembc/testharness-ulpmark-ml)).
 
-2. Connects to (mounts) the hardware, initializes it, and provides *performance* or *validation* testing.
+2. Connects to (mounts) the hardware, initializes it, and provides *performance* or *validation* testing mock-up runs.
 
 3. Searches a directory for available stimulus files based on the DUT model query.
 
-4. If performance mode, runs N warmup and M measurement iterations on the first binary file located in the test input directory. If validation mode, run one iteration of every file in the test input directory.
-
+4. In performance mode, it runs N warmup and M measurement iterations on the first binary file located in the test input directory. In validation mode, it runs one iteration of every file in the test input directory.
 
 What it does NOT do:
 
@@ -23,14 +22,17 @@ What it does NOT do:
 
 3. Perform energy measurements.
 
+# Usage
 
-# How to Use
+This is a very brief user guide for booting the framework and testing connectivity.
 
-There are three OS release: Mac Big Sur / Catalina, Ubuntu 18.04 (probably works on 20.04), and Win10. The macOS version is provided as a *.app file. Linux and Windows are provided as zip-files.
+There are three OS release: Mac Big Sur / Catalina, Ubuntu 18.04 (probably works on 20.04), and Win10. The macOS version is provided as a \*.app file. Linux and Windows are provided as zip-files.
 
-Open the application, if everything booted properly this window appears:
+Open the application by double-clicking the icon in macOS, running `EEMBC Benchmark Framework.exe` in windows, or `benchmark-framework` in Linux. if everything booted properly this window appears:
 
 ![Figure 1. Boot screen](img/img-1.png)
+
+The first line in the User Console indicates the temporary directory and root used by the framework. See below for notes on customizing this.
 
 Take note of the directory (in red) in the center of the screen. This is a work directory that has been created. Unzip the `ulp-mlperf.zip` file into that directory to create the following tree structure. Note these files are bogus random binary data and are provided for testing `kws01`. Since the framework determines where to look for input files based on the model response from the DUT, you can rename this to match whatever NN you are targeting.
 
@@ -42,7 +44,7 @@ Plug in the USB device connected to the device under test (DUT). The device shou
 
 If you see warnings about missing VISA drivers, ignore them. (The code supports VISA test hardware, but it is irrelevant for performance testing.)
 
-Click "initialize" under the benchmark section and the runner will mount the device and handshake. At this point, you can issue commands to the DUT by typing `dut <command>` in the User Console input line.
+Click "initialize" under the benchmark section and the runner will mount the device and handshake. At this point, you can issue commands to the DUT by typing `dut <command>` in the User Console input line. Also note that the `Model: kws01` has been automatically populated. Handshaking with the DUT causes the DUT to print a special query message alerting the runner of the correct model inputs to use.
 
 ![Figure 4. Result of initializating benchmark](img/img-3.png)
 
@@ -51,6 +53,19 @@ At this point, clicking `run` will download each of the binary files to the DUT 
 ![Figure 5. Successful invocation](img/img-4.png)
 
 If you made it this far, you can now develop & communicate with your firmware. Please contact `peter.torelli@eembc.org` with bugs or questions, or simply file an issue on this repo.
+
+# Custom Configuration
+
+First, identify your $HOME directory. On Linux and macOS this is `$HOME`, on Win10 it is `%USERPROFILE%`. Create a file in this folder called `.eembc.json`:
+
+~~~
+% cat $HOME/.eembc.json 
+{
+    "root": "/Users/ptorelli/nobackup",
+}
+~~~
+
+Change `root` to wherever you want the runner to generate the `eembc/runner/{sessions,temp,benchmarks}` directories. It will create these the next time the framework starts.
 
 # Copyright License
 
