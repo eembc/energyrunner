@@ -133,6 +133,8 @@ Click `Initialize` under the benchmark section and the runner will mount the dev
 
 The colors indicate which device is talking. Green is the IO Manager, Tan is the EMON, and Blue is the DUT. A lot of handshaking is required to perform a simple handshake.
 
+(If you see the DUT printing random characters as soon as it is powered on--in this case `;#;;`--it is due to invalid data in the UART buffer being flushed. Not all hardware does this, it depends on initializaiton. You can simply ignore it.)
+
 Unlike Performance Mode, you cannot talk directly to the DUT right now because it is powered down. To issue a DUT command, scroll down to the EMON control panel, turn on the power, and then issue `io dut <command>`. The `io` prefix is necessary because you are sending the command to the IO Manager, which then passes it down to the DUT at the correct voltage.
 
 At this point, clicking `Run` will the first binary input to the DUT using the `db` commands (as stated above, depending on the mode) and collect a timing score. When it completes, an energy window will pop up at the bottom of the screen, like this:
