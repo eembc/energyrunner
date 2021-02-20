@@ -131,7 +131,7 @@ Click `Initialize` under the benchmark section and the runner will mount the dev
 
 ![Energy Mode Handshake](img/img-7.png)
 
-The colors indicate which device is talking. Green is the IO Manager, Tan is the EMON, and Blue is the DUT. A lot of handshaking is required to perform a simple handshake.
+The colors indicate which device is talking. Green is the IO Manager, Tan is the EMON, and Blue is the DUT. A lot of synchronized communcaiton is required to perform a simple handshake!
 
 (If you see the DUT printing random characters as soon as it is powered on--in this case `;#;;`--it is due to invalid data in the UART buffer being flushed. Not all hardware does this, it depends on initializaiton. You can simply ignore it.)
 
