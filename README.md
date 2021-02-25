@@ -51,7 +51,7 @@ The Runner supports three different energy monitors, aka *EMON*:
 2. [Joulescope JS110 plus a low-noise power supply](https://www.joulescope.com/products/joulescope-precision-dc-energy-analyzer)
 3. [Keysight N6705](https://www.keysight.com/en/pd-2747858-pn-N6705C/dc-power-analyzer-modular-600-w-4-slots?cc=US&lc=eng) with 1xN6781+1xN6731 or 2xN6781
 
-Depending on the EMON you use, there are three different Runner schematics. 
+Depending on the EMON you use, there are three different Runner schematics.
 
 For the LPM01A:
 
@@ -65,7 +65,7 @@ For the N6705:
 
 ![Hookup diagram for Runner using for N6705](img/hookup-n6705.png)
 
-The EMON must supply a MEASURED voltage and an UNMEASURED voltage. The former supplies the entire DUT board, the latter supplies just the level shifters. 
+The EMON must supply a MEASURED voltage and an UNMEASURED voltage. The former supplies the entire DUT board, the latter supplies just the level shifters.
 
 **IMPORTANT NOTE: Only ONE power supply is allowed to supply the DUT during measurement.** Any additional circuitry on the board will contribute to power and lower the score. The run rules allow cutting traces, desoldering bridges, removing jumpers or setting switches to disable ancillary hardware on the platform (e.g., debug hardware, or kit sensors).
 
@@ -93,7 +93,7 @@ Under the `Benchmarks and Test Scripts` panel, choose one of the two benchmark m
 
 ![ML Performance mode](img/img-2.png)
 
-Take note of the directory (in red) in the center of the screen. This is a work directory that has been created. Unzip the `dummyfiles_ulp-mlperf.zip` file into that directory to create the following tree structure. Note these files are bogus random binary data and are provided for testing `kws01` and `ic01`. Since the framework determines where to look for input files based on the model response from the DUT, you can rename this to match whatever NN you are targeting.
+Take note of the directory (in red) in the center of the screen. This is a work directory that has been created. Copy the `datasets` folder from this repository into this folder. There is a README in this repositories dataset folder explaining the file formats.
 
 ![Input file directory](img/input-folder.png)
 
@@ -139,7 +139,7 @@ At this point, clicking `Run` will the first binary input to the DUT using the `
 
 ![Energy viewable results](img/img-8.png)
 
-Each time a run completes successfully a new EMON window pops up; close them with the "x" in the upper-right corner. 
+Each time a run completes successfully a new EMON window pops up; close them with the "x" in the upper-right corner.
 
 The User Console will indicate the energy and power in between the timestamps (plus a small time buffer of a few hundred microseconds to make sure we're in the middle of the run).
 
