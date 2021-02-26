@@ -4,7 +4,7 @@ This is an alpha release of the benchmark runner for ULPMark&trade;-ML and tinyM
 
 The goal is to facilitate bringup of the firmware, not collect official scores. This software is provided solely for the purpose of cross-development between EEMBC and MLCommons's tinyMLperf. This repository will be removed and replaced with an official release once development is done.
 
-# LFS
+## LFS
 
 This repo uses GitHub's Large File Storage. If the files under the `dist/` folder are just a few hundred bytes, that means git LFS was not used. Install it using [this guide from GitHub](https://git-lfs.github.com/), and then **re-clone the repository**.
 
