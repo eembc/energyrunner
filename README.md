@@ -117,9 +117,8 @@ Running too few iterations will result in a low performance number if the device
 
 ## Selecting Energy Mode
 
-Under the `Benchmarks and Test Scripts` panel, choose one of the two benchmark modes. We'll start with `ML Energy`. A configuration panel will appear that looks identical to the `ML Performance` panel, except the "Validation" option is disabled temporarily, since running validation in energy mode is incredibly slow at 9600 baud.
+Under the `Benchmarks and Test Scripts` panel, choose one of the two benchmark modes. We'll start with `ML Energy`. A configuration panel will appear that looks identical to the `ML Performance` panel, except multiple input mode has been removed. At 9600 baud, this would take a very long time, it is easier to just compile for performance mode when running full validation.
 
-Refer to the section on input files mentioned in performance mode, above. It is the same for both modes.
 
 Plug in the Energy Monitor (EMON) and the IO Manager, it should look like this:
 
