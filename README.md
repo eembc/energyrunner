@@ -6,7 +6,7 @@ The goal is to facilitate bringup of the firmware, not collect official scores. 
 
 # LFS
 
-This repo uses GitHub's Large File Storage. If the files under the `dist/` folder are just a few hundred bytes, that means git LFS was not used. Install it using (this guide from GitHub)[https://git-lfs.github.com/], and then **re-clone the repository**.
+This repo uses GitHub's Large File Storage. If the files under the `dist/` folder are just a few hundred bytes, that means git LFS was not used. Install it using [this guide from GitHub](https://git-lfs.github.com/), and then **re-clone the repository**.
 
 # Current Status
 
