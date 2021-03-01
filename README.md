@@ -12,9 +12,7 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 * [macOS](https://www.eembc.org/ulpmark/runner/macos.dmg)
 * [Linux](https://www.eembc.org/ulpmark/runner/linux.tar.gz)
 
-This repo uses GitHub's Large File Storage. If the files under the `dist/` folder are just a few hundred bytes, that means git LFS was not used. Install it using [this guide from GitHub](https://git-lfs.github.com/), and then **re-clone the repository**.
-
-# Current Status
+## Current Status
 
 Still in alpha, but we've started adding support for computing accuracy metrics from ground truths (for model `ic01` only), and added the energy compatibility plugin.
 
