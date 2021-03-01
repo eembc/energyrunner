@@ -51,6 +51,12 @@ Compile as `EE_CFG_ENERGY_MODE 1` (see the `#define` in `monitor/th_api/th_confi
 
 Since Energy Mode supplies power to the device at a different voltage than the host USB, we need to electrically isolate the DUT. This is accomplished through two pieces of hardware: 1) three level shifters (one each for UART-TX, UART-RX and GPIO timestamp), an Arduino Uno. The Uno is referred to as the "IO Manager" and provides a UART passthrough to/from the host Runner.
 
+The IO Manager is a simple Arduino UNO. Using the Arduino IDE to flash the `io-manager_1.0.3.hex` image, like so:
+
+~~~
+C:\dev\arduino\1.6.6\hardware\tools\avr\bin\avrdude.exe -CC:\dev\arduino\1.6.6\hardware\tools\avr\etc\avrdude.conf -v -patmega328p -carduino -PCOM3 -b115200 -D -Uflash:w:io-manager-1.0.3.hex:i
+~~~
+
 The recommended level shifters are the 4-channel BSS138 devices, as sold by [AdaFruit](https://www.adafruit.com/product/757). Simply plug these into a breadboard, provide 5V on the high-side voltage from the Arduino, and VCC from another power supply. This LevelShifter VCC must match the GPIO output of the DUT.
 
 The Runner supports three different energy monitors, aka *EMON*:
@@ -64,6 +70,10 @@ Depending on the EMON you use, there are three different Runner schematics.
 For the LPM01A:
 
 ![Hookup diagram for Runner using for LPM01A](img/hookup-lpm01a.png)
+
+Here is a more specific schematic:
+
+![Detailed schematic for LPM01A](img/hookup-01.png)
 
 For the JS110:
 
