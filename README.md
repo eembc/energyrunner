@@ -73,7 +73,7 @@ For the LPM01A:
 
 Here is a more specific schematic:
 
-![Detailed schematic for LPM01A](img/hookup-01.png)
+![Detailed schematic for LPM01A](img/hookup-01.jpg)
 
 For the JS110:
 
