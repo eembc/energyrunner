@@ -77,13 +77,7 @@ The yellow line is the output of the DUT UART (Tx), which goes into the Arduino 
 
 ![Detailed schematic for LPM01A](img/hookup-01.jpg)
 
-For the JS110:
-
-![Hookup diagram for Runner using for JS110](img/hookup-js110.png)
-
-For the N6705:
-
-![Hookup diagram for Runner using for N6705](img/hookup-n6705.png)
+For the JS110, [use this schematic](img/hookup-js110.png), and for the N6705, [this one](img/hookup-n6705.png).
 
 The EMON must supply a MEASURED voltage and an UNMEASURED voltage. The former supplies the entire DUT board, the latter supplies just the level shifters.
 
