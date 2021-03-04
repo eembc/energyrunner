@@ -12,6 +12,8 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 * [macOS](https://www.eembc.org/ulpmark/runner/macos.dmg)
 * [Linux](https://www.eembc.org/ulpmark/runner/linux.tar.gz)
 
+The latest version is 3.0.0-RC20 uploaded on 03-MAR-2021 at about 1:50PM PST.
+
 ## Current Status
 
 Still in alpha, but we've started adding support for computing accuracy metrics from ground truths (for model `ic01` only), and added the energy compatibility plugin.
