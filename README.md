@@ -1,11 +1,25 @@
+# Table of Contents
+
+* [Introduction](#introduction)
+    * [Links](#links)
+    * [Current Status](#current-status)
+    * [Performance Mode vs. Energy Mode](#performance-mode-vs-energy-mode)
+* [Hardware Setup](#hardware-setup)
+    * [Performance Mode Hardware](#performance-mode-hardware)
+    * [Energy Mode Hardware](#energy-mode-hardware)
+* [Software Setup](#software-setup) 
+    * [Download and Start the Host UI Runner](#download-and-start-the-host-ui-runner)
+    * [Selecting Performance Mode](#selecting-performance-mode)
+    * [Selecting Energy Mode](#selecting-energy-mode)
+* [Custom Configuration](#custom-configuration)
+* [Debugging Device Auto-detection](#debugging-device-auto-detection)
+* [Bill of Materials](#bill-of-materials)
+
 # Introduction
 
 This is an alpha release of the benchmark runner for ULPMark&trade;-ML and tinyMLperf. It is still missing several features as we are currently debugging and developing.
 
 The goal is to facilitate bringup of the firmware, not collect official scores. This software is provided solely for the purpose of cross-development between EEMBC and MLCommons's tinyMLperf. This repository will be removed and replaced with an official release once development is done.
-
-* TOC
-{:toc}
 
 ## Links
 
@@ -21,7 +35,7 @@ The latest version is 3.0.0-RC20 uploaded on 03-MAR-2021 at about 1:50PM PST.
 
 Still in alpha, but we've started adding support for computing accuracy metrics from ground truths (for model `ic01` only), and added the energy compatibility plugin.
 
-# Performance Mode vs. Energy Mode
+## Performance Mode vs. Energy Mode
 
 Throughout this document, you will see constant distinctions made between *performance* mode and *energy* mode. The reason why the two collection modes have been separated is due to how the device under test, aka the DUT, behaves in both modes.
 
