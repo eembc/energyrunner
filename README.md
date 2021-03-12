@@ -227,7 +227,9 @@ When the Runner boots, it scans all of the scans all the serial ports searching 
 2. The device took too long to reply; minimize the amount of code executing between power-on and `m-ready`.
 3. The USB subsystem did not initialize before the plug-in event was sent; exit the runner, plug the device in, restart the runner
 
-Also, every time a USB device changes, the system needs to perform a scan for a long list of hardware. If you have many USB devices connected to your system and this is taking a long time, it is recommended to not swap USB devices while running.
+Also, every time a USB device changes, the system needs to perform a scan for a long list of hardware. If you have many USB devices connected to your system and this is taking a long time, it is recommended to not swap USB devices while running. Making this worse, some OSes report the USB change notification before the drivers are loaded and the device has booted, which leads to a timeout and "No compatible devices detected."
+
+**TL;DR**: Sometimes a device is not detected when hot-plugged. The solution is to plug in all devices first, wait a few seconds for your device to boot, and then start the runner.
 
 
 # Bill of Materials
