@@ -29,7 +29,7 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 * [macOS](https://www.eembc.org/ulpmark/runner/macos.dmg)
 * [Linux](https://www.eembc.org/ulpmark/runner/linux.tar.gz)
 
-The latest version is 3.0.0-RC20 uploaded on 03-MAR-2021 at about 1:50PM PST.
+The latest version is 3.0.0-RC22 uploaded on 15-MAR-2021 at about 10:32AM PST.
 
 ## Current Status
 
@@ -151,7 +151,6 @@ Running too few iterations will result in a low performance number if the device
 ## Selecting Energy Mode
 
 Under the `Benchmarks and Test Scripts` panel, choose one of the two benchmark modes. We'll start with `ML Energy`. A configuration panel will appear that looks identical to the `ML Performance` panel, except multiple input mode has been removed. At 9600 baud, this would take a very long time, it is easier to just compile for performance mode when running full validation.
-
 
 Plug in the Energy Monitor (EMON) and the IO Manager, it should look like this:
 
