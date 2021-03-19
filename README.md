@@ -193,6 +193,7 @@ timestamp-hold-us=50
 umount-on-error=true
 use-crlf=false
 use-visa=true
+n6705-set-vio=true
 ~~~
 
 These three are most relevant for the ML effort:
@@ -216,6 +217,8 @@ Other settings are listed here for the sake of completeness:
 * `use-crlf` prints CRLF at the end of all log file messages, rather than a single LF.
 
 * `use-visa` enables/disables communication with the VISA drivers on the system. Some drivers are quite slow to detect, and if no VISA devices are used, it can speed the Runner boot-time by disabling this.
+
+* `n6705-set-vio` enables/disables automatically setting the IO channel of the N6705. This may be necessary if the MCU board-input voltage differs from the GPIO voltages due to an intermediate SMPS/LDO.
 
 
 # Debugging Device Auto-detection
