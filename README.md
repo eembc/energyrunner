@@ -69,6 +69,8 @@ Connect the DUT to the system with a USB-TTL or USB-debugger cable so that it ap
 
 Proceed to "Software Setup" below.
 
+**ProTip**: Only attempt this if you are very comfortable with the process. It is possible to run performance mode at a higher baud rate. This may be desirable to speed up downloading of the images. For this to work, change the DUT default baud rate from 115200 to the new value, and then edit the `.eembc.ini` file `dut-baud` to match. Instability may occur at higher rates however depending on your OS and hardware. Also note that if you change the default baud in the `.eembc.ini` file, the framework will no longer detect the energy monitor or IO Manager, so be sure to set it back to run in Energy Mode!
+
 ## Energy Mode Hardware
 
 Port the firmware to your device from the test harness based on the EEMBC ULPMark-ML [test harness sample code](https://github.com/eembc/testharness-ulpmark-ml), or the [MLCommons tinyMLPerf reference code](https://github.com/mlcommons/tiny/tree/master/v0.1). Both sample templates are un-implemented, but provide the same serial monitor interface.
