@@ -21,6 +21,8 @@ This is the benchmark runner for ULPMark&trade;-ML and tinyMLperf. It is used to
 
 ## Links
 
+### Runner Binaries
+
 Since the runner binaries are over the GitHub limit, they are now hosted off GitHub at the following links:
 
 * [Windows 10](https://www.eembc.org/ulpmark/runner/win10.7z)
@@ -28,6 +30,10 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 * [Linux](https://www.eembc.org/ulpmark/runner/linux.tar.gz)
 
 The latest version is 3.0.0-RC26 uploaded on 22-MAR-2021 at about 12:28AM PST. The significant change is lowering the timeout window for the `bload` of each image, since USB/serial latency can vary depending on the host system load.
+
+### Tutorial Videos
+
+There are also two videos to accompany the energy measurement process. [Part one](https://www.youtube.com/watch?v=4Tvf-GnYHoc) explains how to connect the hardware described in this document. [Part two](https://www.youtube.com/watch?v=fUmDLY7MJxQ) explains how to use the runner to make an energy measurement.
 
 ## Current Status / TODO
 
