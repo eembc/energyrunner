@@ -17,9 +17,7 @@
 
 # Introduction
 
-This is the benchmark runner for ULPMark&trade;-ML and tinyMLperf.
-
-The goal is to facilitate bringup of the firmware, not collect official scores. This software is provided solely for the purpose of cross-development between EEMBC and MLCommons's tinyMLperf.
+This is the benchmark runner for ULPMark&trade;-ML and tinyMLperf. It is used to collect performance, accuracy, and energy metrics from a device that complies with the firmware from both projects. EEMBC's firmware can be found [here](https://github.com/eembc/testharness-ulpmark-ml), and tinyMLPerf's reference submissions are [here](https://github.com/mlcommons/tiny/).
 
 ## Links
 
