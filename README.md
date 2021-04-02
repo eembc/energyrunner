@@ -31,9 +31,12 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 
 The latest version is 3.0.0-RC26 uploaded on 22-MAR-2021 at about 12:28AM PST. The significant change is lowering the timeout window for the `bload` of each image, since USB/serial latency can vary depending on the host system load.
 
-## Current Status
+## Current Status / TODO
 
-Still in alpha, but we've started adding support for computing accuracy metrics from ground truths (for model `ic01` only), and added the energy compatibility plugin.
+* All four models have datasets (kws01 will be adding more images shortly)
+* Anomaly detection will be supporting a sliding window soon for smaller datasets
+* Joules/inference needs to be added at the end of the energy test
+* The performance test needs to select 5 inputs and enforce the 10-second/10-iteration minimum
 
 ## Performance Mode vs. Energy Mode
 
