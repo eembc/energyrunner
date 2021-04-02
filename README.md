@@ -7,7 +7,7 @@
 * [Hardware Setup](#hardware-setup)
     * [Performance Mode Hardware](#performance-mode-hardware)
     * [Energy Mode Hardware](#energy-mode-hardware)
-* [Software Setup](#software-setup) 
+* [Software Setup](#software-setup)
     * [Download and Start the Host UI Runner](#download-and-start-the-host-ui-runner)
     * [Selecting Performance Mode](#selecting-performance-mode)
     * [Selecting Energy Mode](#selecting-energy-mode)
@@ -29,18 +29,15 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 * [macOS](https://www.eembc.org/ulpmark/runner/macos.dmg)
 * [Linux](https://www.eembc.org/ulpmark/runner/linux.tar.gz)
 
-The latest version is 3.0.0-RC26 uploaded on 22-MAR-2021 at about 12:28AM PST. The significant change is lowering the timeout window for the `bload` of each image, since USB/serial latency can vary depending on the host system load.
+The latest version is 3.0.0 uploaded on 02-APR-2021 at about 12:28AM PST.
 
 ### Tutorial Videos
 
 There are also two videos to accompany the energy measurement process. [Part one](https://www.youtube.com/watch?v=4Tvf-GnYHoc) explains how to connect the hardware described in this document. [Part two](https://www.youtube.com/watch?v=fUmDLY7MJxQ) explains how to use the runner to make an energy measurement.
 
-## Current Status / TODO
+## Current Status
 
-* All four models have datasets (kws01 will be adding more images shortly)
-* Anomaly detection will be supporting a sliding window soon for smaller datasets
-* Joules/inference needs to be added at the end of the energy test
-* The performance test needs to select 5 inputs and enforce the 10-second/10-iteration minimum
+* Awaiting feedback on AUC settings and final validation datasets
 
 ## Performance Mode vs. Energy Mode
 
@@ -141,9 +138,7 @@ Take note of the directory (in red) in the center of the screen. This is a work 
 
 **The Runner will look in the subfolder defined in the firmware, and can be checked with the `profile%` command.**
 
-Plug in the USB device connected to the device under test (DUT). The device should appear under the device console. Some operating systems take longer than others to scan USB, so this could take anywhere from a few hundred milliseconds to a few seconds.
-
-![Result of plugging in a compliant device for performance mode](img/img-3.png)
+Also note that the application was started with a Performance Mode DUT plugged in, and it shows up as a macOS serial port.
 
 If you see warnings about missing VISA drivers, ignore them. (The code supports VISA test hardware, but it is irrelevant for performance testing. If the VISA scan takes too long, refer to the configuration options at the end of this document.)
 
@@ -157,6 +152,10 @@ At this point, clicking `Run` will download the first binary input to the DUT us
 
 Running too few iterations will result in a low performance number if the device is fast. Try increasing the number of run iterations to see if the performance increases.
 
+Selecting "Benchmark" mode runs 5 different input files and takes the median of the inferences/second metric:
+
+![Median](img/img-5b.png)
+
 ## Selecting Energy Mode
 
 Under the `Benchmarks and Test Scripts` panel, choose one of the two benchmark modes. We'll start with `ML Energy`. A configuration panel will appear that looks identical to the `ML Performance` panel, except multiple input mode has been removed. At 9600 baud, this would take a very long time, it is easier to just compile for performance mode when running full validation.
@@ -165,7 +164,7 @@ Plug in the Energy Monitor (EMON) and the IO Manager, it should look like this:
 
 ![Result of plugging in a compliant device for performance mode](img/img-6.png)
 
-Two devices appear, the EMON and the IO Manager. If you are seeing a JS110 or N6705, they will also appear. The system will use the first EMON it sees unless you disable it with the toggle buttons.
+Two devices appear, the EMON and the IO Manager. If you are using a JS110 or N6705, they will also appear. The system will use the first EMON it sees unless you disable it with the toggle buttons.
 
 Click `Initialize` under the benchmark section and the runner will mount the device and handshake. If you click on the "+" sign in the upper-right of the User Console, and grow the window, it should look something like this:
 
@@ -173,17 +172,15 @@ Click `Initialize` under the benchmark section and the runner will mount the dev
 
 The colors indicate which device is talking. Green is the IO Manager, Tan is the EMON, and Blue is the DUT. A lot of synchronized communcaiton is required to perform a simple handshake!
 
-(If you see the DUT printing random characters as soon as it is powered on--in this case `;#;;`--it is due to invalid data in the UART buffer being flushed. Not all hardware does this, it depends on initializaiton. You can simply ignore it.)
-
 Unlike Performance Mode, you cannot talk directly to the DUT right now because it is powered down. To issue a DUT command, scroll down to the EMON control panel, turn on the power, and then issue `io dut <command>`. The `io` prefix is necessary because you are sending the command to the IO Manager, which then passes it down to the DUT at the correct voltage.
 
 At this point, clicking `Run` will the first binary input to the DUT using the `db` commands (as stated above, depending on the mode) and collect a timing score. When it completes, an energy window will pop up at the bottom of the screen, like this:
 
 ![Energy viewable results](img/img-8.png)
 
-Each time a run completes successfully a new EMON window pops up; close them with the "x" in the upper-right corner.
+Each time a run completes successfully a new EMON window pops up; close them with the "x" in the upper-right corner. The User Console will indicate the energy and power in between the timestamps (plus a small time buffer of a few hundred microseconds to make sure we're in the middle of the run).
 
-The User Console will indicate the energy and power in between the timestamps (plus a small time buffer of a few hundred microseconds to make sure we're in the middle of the run).
+If running in Benchmark mode, you will see the median score of 5 energy runs:
 
 ![Energy score](img/img-9.png)
 
