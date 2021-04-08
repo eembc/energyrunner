@@ -31,9 +31,11 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 
 The latest version is 3.0.0 uploaded on 02-APR-2021 at about 12:28AM PST.
 
-### Tutorial Videos
+### Tutorial Videos & Slides
 
 There are also two videos to accompany the energy measurement process. [Part one](https://www.youtube.com/watch?v=4Tvf-GnYHoc) explains how to connect the hardware described in this document. [Part two](https://www.youtube.com/watch?v=fUmDLY7MJxQ) explains how to use the runner to make an energy measurement.
+
+Training slides are also available in the `docs` folder.
 
 ## Current Status
 
