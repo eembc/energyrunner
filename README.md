@@ -52,9 +52,11 @@ The DUT differs like this:
 | Connects to Host PC          | Electrically isolated from Host PC |
 | Talks directly to the Runner | Talks directly to IO Manager       |
 | Baud rate can be changed     | Baud rate fixed at 9600            |
-| Timestamp is an MCU counter  | Timestamp is GPIO falling-edge     |
+| Timestamp is an MCU counter of at least 1kHz (1000us)  | Timestamp is GPIO falling-edge with 1us hold-time |
 
 Because of these key differences, two different plug-ins are provided in the "Benchmarks and Test Scripts" drop-down, one for each of the two modes.
+
+It not possible to switch modes dynamically because some UARTs cannot change baud on the fly. Future versions of the benchmark will support alternate solutions for changing modes, but for now it requires a recompilation of the firmware and use of a `#define EE_CFG_ENERGY_MODE 1` to switch.
 
 # Hardware Setup
 
