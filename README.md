@@ -29,7 +29,7 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 * [macOS](https://www.eembc.org/ulpmark/runner/macos.dmg)
 * [Linux](https://www.eembc.org/ulpmark/runner/linux.tar.gz)
 
-The latest version is 3.0.0 uploaded on 02-APR-2021 at about 12:28AM PST.
+The latest version is 3.0.1 uploaded on 09-APR-2021 at about 10:11AM PST.
 
 ### Tutorial Videos & Slides
 
