@@ -247,7 +247,6 @@ Also, every time a USB device changes, the system needs to perform a scan for a 
 
 **TL;DR**: Sometimes a device is not detected when hot-plugged. The solution is to plug in all devices first, wait a few seconds for your device to boot, and then start the runner.
 
-
 # Bill of Materials
 
 | Component | Product | Links |
@@ -258,6 +257,10 @@ Also, every time a USB device changes, the system needs to perform a scan for a 
 | Breadboard | Pololu 400pt | [Pololu](https://www.pololu.com/product/351) - [Digikey](https://www.digikey.com/en/products/detail/pololu-corporation/351/11586984) |
 | Hookup Wires | E-Z-Hook | [E-Z-Hook](https://e-z-hook.com/test-leads/pins-plugs-sockets/9110-square-0-025-inch-socket-with-heat-shrink-22-awg-pvc-test-lead-jumper/) - [DigiKey](https://www.digikey.com/en/products/detail/e-z-hook/9110-6-S/2603112) |
 | Headers (extra tall) | Samtec Inc. | [Samtec](https://www.samtec.com/products/mtsw-110-09-s-s-330) - [DigiKey](https://www.digikey.com/en/products/detail/samtec-inc/MTSW-110-09-S-S-330/8162605) |
+
+# Submitting a Score
+
+To submit a score, use the [Submission Link](https://www.eembc.org/ulpmark/ulp-ml/submit.php). You will need to create an account, and will be presented with a submission disclosure. Once submitted, scores take about 1-2 days to be reviewed and published. Scores may also be certified, which is a process by which EEMBC labs determines the benchmark was run in accordance with the roles. Please contact [EEMBC support](mailto:support@eembc.org) for information on certification. Certification will not be available until summer 2021.
 
 # Copyright License
 
