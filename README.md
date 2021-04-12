@@ -214,7 +214,7 @@ These three are most relevant for the ML effort:
 
 * `root` changes where the Runner looks for input files, and saves output sessions.
 
-* `dut-baud` sets the default Baud rate for serial detection in performance mode.
+* `dut-baud` sets the default Baud rate for serial detection in performance mode. This also controls the baud rate to the IO Manager. **USE CAUTION** If you change this from 115200 and forget to change it back, the framework won't detect the IO Manager! This is only for direct-connection of the DUT.
 
 * `dut-boot-mv` selects the voltage used while querying the device on initialization (prior to making the EMON voltage setting available to the user).
 
