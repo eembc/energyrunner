@@ -19,7 +19,7 @@ Both EEMBC's ULPMark-ML and MLCommon's tinyMLPerf use these models. You will oft
 | --------- | ----------- |
 | ad01      | Anomaly Detection |
 | ic01      | Image Classification |
-| kws01     | Key-word Spotting |
+| kws01     | Keyword Spotting |
 | vww01     | Visual wake word, aka person detection |
 
 See each models' README file for links to the model paper, repositories, training methodology, etc.

@@ -1,8 +1,8 @@
 # Model
 
-Name: Image Classification v0.1
-Code: `ic01`
-Base: CIFAR10_ResNetv1
+* Name: Image Classification v0.1
+* Code: `ic01`
+* Base: CIFAR10_ResNetv1
 
 # Sources
 * Dataset

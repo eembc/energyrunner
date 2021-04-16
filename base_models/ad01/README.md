@@ -1,8 +1,8 @@
 # Model
 
-Name: Anomaly Detection v0.1
-Code: `ad01`
-Base: ToyADMOS_FC_AE
+* Name: Anomaly Detection v0.1
+* Code: `ad01`
+* Base: ToyADMOS_FC_AE
 
 # Sources
 * Dataset

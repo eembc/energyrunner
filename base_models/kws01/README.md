@@ -1,8 +1,8 @@
 # Model
 
-Name: Key-word Spotting v0.1
-Code: `kws01`
-Base: KWS10_ARM_DSConv
+* Name: Keyword Spotting v0.1
+* Code: `kws01`
+* Base: KWS10_ARM_DSConv
 
 # Sources
 * Dataset

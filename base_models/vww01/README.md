@@ -1,8 +1,8 @@
 # Model
 
-Name: Visual Wake Word v0.1
-Code: `vww01`
-Base: Person_detection
+* Name: Visual Wake Word v0.1
+* Code: `vww01`
+* Base: Person_detection
 
 # Sources
 * Dataset
