@@ -60,6 +60,7 @@ The DUT differs like this:
 | Talks directly to the Runner | Talks directly to IO Manager       |
 | Baud rate can be changed     | Baud rate fixed at 9600            |
 | Timestamp is an MCU counter of at least 1kHz (1000us)  | Timestamp is GPIO falling-edge with 1us hold-time |
+| Measures throughput (infernces per second) and accuracy (Top-1 and AUC) | Measures throughput (inferences per second) and Energy (Joules per inference) |
 
 Because of these key differences, two different plug-ins are provided in the "Benchmarks and Test Scripts" drop-down, one for each of the two modes.
 
@@ -69,9 +70,9 @@ It not possible to switch modes dynamically because some UARTs cannot change bau
 
 ## Performance Mode Hardware
 
-Port the firmware to your device from the test harness based on the EEMBC ULPMark-ML [test harness sample code](https://github.com/eembc/testharness-ulpmark-ml), or the [MLCommons tinyMLPerf reference code](https://github.com/mlcommons/tiny/tree/master/v0.1). Both sample templates are un-implemented, but provide the same serial monitor interface.
+Port the firmware to your device from the test harness based on the EEMBC ULPMark-ML [test harness sample code](https://github.com/eembc/testharness-ulpmark-ml), or the [MLCommons tinyMLPerf reference code](https://github.com/mlcommons/tiny/tree/master/v0.1). Both sample templates are un-implemented, but provide the same serial monitor interface. There are four reference ports (one for each model) that use mbedOS and TFLiteMicro in the tinyMLPerf [reference submissions](https://github.com/mlcommons/tiny/tree/master/v0.1/reference_submissions). This may help give you an idea of what a functional port looks like.
 
-Compile as `EE_CFG_ENERGY_MODE 0` (see the `#define` in `monitor/th_api/th_config.h` or `api/submitter_provided.h`). Program the `th_timestamp` function to return the current microseconds since boot time (e.g., with a MCU counter or system timer).
+Compile as `EE_CFG_ENERGY_MODE=0` (see the `#define` in `monitor/th_api/th_config.h` or `api/submitter_provided.h`). Program the `th_timestamp` function to return the current microseconds since boot time (e.g., with a MCU counter or system timer).
 
 Connect the DUT to the system with a USB-TTL or USB-debugger cable so that it appears as serial port to the system at 115200 baud, 8N1. (If using a faster Baud rate, see the configuration section at the end of this document.) To verify this step, you should be able to open a terminal program (such as PuTTY, TeraTerm or the Arduino IDE Serial Monitor), connect to the device, and issue the `name%` command successfully.
 
