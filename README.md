@@ -43,7 +43,7 @@ Release history:
 
 There are also two videos to accompany the energy measurement process. [Part one](https://www.youtube.com/watch?v=4Tvf-GnYHoc) explains how to connect the hardware described in this document. [Part two](https://www.youtube.com/watch?v=fUmDLY7MJxQ) explains how to use the runner to make an energy measurement.
 
-Training slides are also available in the `docs` folder.
+Training slides are also available in the `doc` folder.
 
 ## Current Status
 
