@@ -29,10 +29,11 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 * [macOS](https://www.eembc.org/ulpmark/runner/macos.dmg)
 * [Linux](https://www.eembc.org/ulpmark/runner/linux.tar.gz)
 
-Current version: 3.0.3
+Current version: 3.0.4
 
 Release history:
 
+* 3.0.4 - 2021-04-26 - Reworded the benchmark panel descriptions to be more succinct.
 * 3.0.3 - 2021-04-14 - Fixed iteration check; release LPM01A host control on unmount
 * 3.0.2 - 2021-04-12 - Fixed issue #7.
 * 3.0.1 - 2021-04-09 - `bloadp` wasn't using sliding windows
