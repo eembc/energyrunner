@@ -47,7 +47,7 @@ Training slides are also available in the `doc` folder.
 
 ## Current Status
 
-* Awaiting feedback on AUC settings and final validation datasets
+* Awaiting official release vote from EEMBC.
 
 ## Performance Mode vs. Energy Mode
 
@@ -274,8 +274,6 @@ Also, every time a USB device changes, the system needs to perform a scan for a 
 # Submitting a Score
 
 To submit a score, use the [Submission Link](https://www.eembc.org/ulpmark/ulp-ml/submit.php). You will need to create an account, and will be presented with a submission disclosure. Once submitted, scores take about 1-2 days to be reviewed and published. Scores may also be certified, which is a process by which EEMBC labs determines the benchmark was run in accordance with the roles. Please contact [EEMBC support](mailto:support@eembc.org) for information on certification. Certification will not be available until summer 2021.
-
-Note: It is intentional that the "Submit Score" button is greyed-on on the control panel. Autosubmission through the GUI has not been enabled yet, and is work-in-progress.
 
 # Copyright License
 
