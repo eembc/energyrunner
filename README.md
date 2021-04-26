@@ -135,17 +135,17 @@ Proceed to "Software Setup" below.
 
 ## Download and Start the Host UI Runner
 
-This is a very brief user guide for booting the framework and testing connectivity.
-
-There are three OS release: Mac Big Sur / Catalina, Ubuntu 18.04 (probably works on 20.04), and Win10. The macOS version is provided as a \*.app file. Linux and Windows are provided as zip-files. Open the application by double-clicking the icon in macOS, running `EEMBC Benchmark Framework.exe` in windows, or `benchmark-framework` in Linux. if everything booted properly this window appears:
+There are three OS releases: macOS, Ubuntu, and Win10. The macOS version is provided as a `dmg` file, Windows as `7z` and Linux as a `tar.gz`. Open the application by double-clicking the icon in macOS, running `EEMBC Benchmark Framework.exe` in windows, or `benchmark-framework` in Linux. if everything booted properly this window appears:
 
 ![Boot screen, no benchmark selected.](img/img-1.png)
+
+In this example, a DUT is already connected to the system, so it is detected in the "Devices" panel and associated with a TTY device (or a COM port if Windows).
 
 When the Host UI Runner first boots, it creates two things: an initialization file in `$HOME/.eembc.ini`, and directory structure to store benchmark input (such as datasets for inference) and output data (such as session logs from previous runs). By default, this is created under `$HOME/eembc`, but can be changed in the INI file, explained at the end of this document.
 
 ## Selecting Performance Mode
 
-Under the `Benchmarks and Test Scripts` panel, choose one of the two benchmark modes. We'll start with `ML Performance`. A configuration panel will appear:
+Under the `Benchmarks and Test Scripts` panel, choose one of the two benchmark plugins. We'll start with `ML Performance`. A configuration panel will appear:
 
 ![ML Performance mode](img/img-2.png)
 
@@ -153,9 +153,7 @@ Take note of the directory (in red) in the center of the screen. This is a work 
 
 ![Input file directory](img/input-folder.png)
 
-**The Runner will look in the subfolder defined in the firmware, and can be checked with the `profile%` command.**
-
-Also note that the application was started with a Performance Mode DUT plugged in, and it shows up as a macOS serial port.
+**The Runner will look in the subfolder defined in the firmware. It knows this because the Runner queries the DUT during initialization and the firmware is configured with the proper response string for each model port.**
 
 If you see warnings about missing VISA drivers, ignore them. (The code supports VISA test hardware, but it is irrelevant for performance testing. If the VISA scan takes too long, refer to the configuration options at the end of this document.)
 
@@ -163,25 +161,29 @@ Click `Initialize` under the benchmark section and the runner will mount the dev
 
 ![Result of initializing benchmark](img/img-4.png)
 
-At this point, clicking `Run` will download the first binary input to the DUT using the `db` commands (as stated above, depending on the mode) and collect a timing score. The difference between the two `m-lap-us` statements is the # of microseconds elapsed. The value will depend on the resolution of the timer implemented on your DUT.
+At this point, clicking `Run` will download the first binary input to the DUT using the `db` commands and collect a performance score. The difference between the two `m-lap-us` statements is the # of microseconds elapsed. The value will depend on the resolution of the timer implemented on your DUT.
 
-![Successful invocation](img/img-5.png)
+![Two few iterations error](img/img-5.png)
 
-Running too few iterations will result in a low performance number if the device is fast. Try increasing the number of run iterations to see if the performance increases.
+That error message is common for first time. The benchmark needs to run for at least 10 seconds or 10 iterations to meet the minimum measurement requirements. In this case 10 iterations took 0.1 seconds, so we need to increase the inference iterations to 1000 to meet the 10-second requirement.
 
-Selecting "Benchmark" mode runs 5 different input files and takes the median of the inferences/second metric:
+After changing the inference iterations, select the "Median Performance" option to run 5 different input files and takes the median of the inferences/second metric:
 
 ![Median](img/img-5b.png)
 
+Also note that the transcript of this run is written to the `sessions/20210...` folder. Every run creates a session folder with current timestamp as its name. This is useful for reviewing previous runs to debug errors.
+
+Selecting the "Accuracy" configuration option (not shown) will run all of the input files for that model and generate the Top-1 and AUC accuracy measurements. This can take one to two hours or more, depending on the speed of your hardware.
+
 ## Selecting Energy Mode
 
-Under the `Benchmarks and Test Scripts` panel, choose one of the two benchmark modes. We'll start with `ML Energy`. A configuration panel will appear that looks identical to the `ML Performance` panel, except multiple input mode has been removed. At 9600 baud, this would take a very long time, it is easier to just compile for performance mode when running full validation.
+Under the `Benchmarks and Test Scripts` panel, choose one of the two benchmark modes. We'll start with `ML Energy`. A configuration panel will appear that looks similar to the `ML Performance` panel, except the "Accuray" option has been removed. At 9600 baud, this would take a very long time; it is quicker to run with the higher baud rate of performance emode.
 
 Plug in the Energy Monitor (EMON) and the IO Manager, it should look like this:
 
 ![Result of plugging in a compliant device for performance mode](img/img-6.png)
 
-Two devices appear, the EMON and the IO Manager. If you are using a JS110 or N6705, they will also appear. The system will use the first EMON it sees unless you disable it with the toggle buttons.
+Two devices appear, the EMON and the IO Manager.
 
 Click `Initialize` under the benchmark section and the runner will mount the device and handshake. If you click on the "+" sign in the upper-right of the User Console, and grow the window, it should look something like this:
 
@@ -189,15 +191,17 @@ Click `Initialize` under the benchmark section and the runner will mount the dev
 
 The colors indicate which device is talking. Green is the IO Manager, Tan is the EMON, and Blue is the DUT. A lot of synchronized communcaiton is required to perform a simple handshake!
 
-Unlike Performance Mode, you cannot talk directly to the DUT right now because it is powered down. To issue a DUT command, scroll down to the EMON control panel, turn on the power, and then issue `io dut <command>`. The `io` prefix is necessary because you are sending the command to the IO Manager, which then passes it down to the DUT at the correct voltage.
+**Advanced:** Unlike Performance Mode, you cannot talk directly to the DUT right now because it is powered down. To issue a DUT command, scroll down to the EMON control panel, turn on the power, and then issue `io dut <command>`. The `io` prefix is necessary because you are sending the command to the IO Manager, which then passes it down to the DUT at the correct voltage.
 
-At this point, clicking `Run` will the first binary input to the DUT using the `db` commands (as stated above, depending on the mode) and collect a timing score. When it completes, an energy window will pop up at the bottom of the screen, like this:
+Assuming we've set the correct number of inference iterations we determined in our previous study, selecting "Median Energy" and clicking `Run` will start an official energy collection. When it completes, an energy window will pop up at the bottom of the screen, like this:
 
 ![Energy viewable results](img/img-8.png)
 
+Hovering over the window list will highlight the region of the energy trace between the `th_timestamp()` calls. There are 5 regions of interest, the 3rd region is highlighted here. Notice how it appears a little bit of energy is not included in the highlighted region? Remember how the main loop in the code performs a warmup iteration before starting the timer? That region to the left of the highlight is the warmup iteration, followed by 10 measured iterations that fall within the timestamp.
+
 Each time a run completes successfully a new EMON window pops up; close them with the "x" in the upper-right corner. The User Console will indicate the energy and power in between the timestamps (plus a small time buffer of a few hundred microseconds to make sure we're in the middle of the run).
 
-If running in Benchmark mode, you will see the median score of 5 energy runs:
+Here is the median score:
 
 ![Energy score](img/img-9.png)
 
