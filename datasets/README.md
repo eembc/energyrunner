@@ -26,3 +26,5 @@ Where number of classes is always 2 (anomaly, normal), and 0=normal, 1=anomaly.
 # KWS open division
 
 For this release of the benchmark, the tinyMLPerf "open" division allows the use of three other additional formats, which can be found in the `kws-open` folder. It is up to the user to copy the files from the `kws-open` folder to the `kws01` folder, the runner will not automatically do this.
+
+More information can be found in the [KWS training repository](https://github.com/mlcommons/tiny/tree/master/v0.1/training/keyword_spotting).
