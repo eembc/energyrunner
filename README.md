@@ -31,23 +31,26 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 
 Current version: 3.0.4
 
-Release history:
+<details>
+   <summary>View release history</summary>
 
-* 3.0.4 - 2021-04-26 - Reworded the benchmark panel descriptions to be more succinct.
-* 3.0.3 - 2021-04-14 - Fixed iteration check; release LPM01A host control on unmount
-* 3.0.2 - 2021-04-12 - Fixed issue #7.
-* 3.0.1 - 2021-04-09 - `bloadp` wasn't using sliding windows
-* 3.0.0 - 2021-04-02 - First release
+   * 3.0.4 - 2021-04-26 - Reworded the benchmark panel descriptions to be more succinct.
+   * 3.0.3 - 2021-04-14 - Fixed iteration check; release LPM01A host control on unmount
+   * 3.0.2 - 2021-04-12 - Fixed issue #7.
+   * 3.0.1 - 2021-04-09 - `bloadp` wasn't using sliding windows
+   * 3.0.0 - 2021-04-02 - First release
+
+</details>
 
 ### Tutorial Videos & Slides
 
 There are also two videos to accompany the energy measurement process. [Part one](https://www.youtube.com/watch?v=4Tvf-GnYHoc) explains how to connect the hardware described in this document. [Part two](https://www.youtube.com/watch?v=fUmDLY7MJxQ) explains how to use the runner to make an energy measurement.
 
-Training slides are also available in the `docs` folder.
+Training slides are also available in the `doc` folder.
 
 ## Current Status
 
-* Awaiting feedback on AUC settings and final validation datasets
+* Awaiting official release vote from EEMBC.
 
 ## Performance Mode vs. Energy Mode
 
@@ -274,8 +277,6 @@ Also, every time a USB device changes, the system needs to perform a scan for a 
 # Submitting a Score
 
 To submit a score, use the [Submission Link](https://www.eembc.org/ulpmark/ulp-ml/submit.php). You will need to create an account, and will be presented with a submission disclosure. Once submitted, scores take about 1-2 days to be reviewed and published. Scores may also be certified, which is a process by which EEMBC labs determines the benchmark was run in accordance with the roles. Please contact [EEMBC support](mailto:support@eembc.org) for information on certification. Certification will not be available until summer 2021.
-
-Note: It is intentional that the "Submit Score" button is greyed-on on the control panel. Autosubmission through the GUI has not been enabled yet, and is work-in-progress.
 
 # Copyright License
 
