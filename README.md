@@ -29,11 +29,12 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 * [macOS](https://www.eembc.org/ulpmark/runner/macos.dmg)
 * [Linux](https://www.eembc.org/ulpmark/runner/linux.tar.gz)
 
-Current version: 3.0.4
+Current version: 3.0.5
 
 <details>
    <summary>View release history</summary>
 
+   * 3.0.5 - 2021-05-07 - Added `disable-mute` initializaiton option (see below)
    * 3.0.4 - 2021-04-26 - Reworded the benchmark panel descriptions to be more succinct.
    * 3.0.3 - 2021-04-14 - Fixed iteration check; release LPM01A host control on unmount
    * 3.0.2 - 2021-04-12 - Fixed issue #7.
@@ -224,6 +225,7 @@ umount-on-error=true
 use-crlf=false
 use-visa=true
 n6705-set-vio=true
+disable-mute=false
 ~~~
 
 These three are most relevant for the ML effort:
@@ -233,6 +235,8 @@ These three are most relevant for the ML effort:
 * `dut-baud` sets the default Baud rate for serial detection in performance mode. This also controls the baud rate to the IO Manager. **USE CAUTION** If you change this from 115200 and forget to change it back, the framework won't detect the IO Manager! This is only for direct-connection of the DUT.
 
 * `dut-boot-mv` selects the voltage used while querying the device on initialization (prior to making the EMON voltage setting available to the user).
+
+* `disable-mute` turns off the muting feature when download input datasets to the DUT. The download process can generate hundreds of thousands of messages, clogging up log files and the display, so by default the disable is off (false). However, for debugging UART issues it might help to have all of these messages, so setting this flag to `true` will produce lots and lots (and lots) of `db ...` messages.
 
 Other settings are listed here for the sake of completeness:
 
