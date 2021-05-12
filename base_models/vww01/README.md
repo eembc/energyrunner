@@ -8,7 +8,7 @@
 * Dataset
     * MSCOCO14 based [https://cocodataset.org/#download]
     * Extraction based on COCO API [https://github.com/cocodataset/cocoapi]
-    * Person mimimal bounding box 2.5%
+    * Person minimal bounding box 2.5%
     * 96x96 images resized with antialias filtering, no aspect ratio preservation
     * All images converted to RGB
     * Training and validation sets combined

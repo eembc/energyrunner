@@ -23,7 +23,7 @@
 # To run the code
 To simply train and test, do the following:
 ```
-cd <git repo root>/eembc/ToyADMOS_FC_AE
+cd <git repo root>/eembc/ad01
 # Create virtual environment
 python -m venv venv
 # Activate virtual environment (Linux)

@@ -17,7 +17,7 @@
 # To run the code
 To simply train and test, do the following:
 ```
-cd <git repo root>/eembc/CIFAR10_ResNetv1
+cd <git repo root>/eembc/ic01
 # Create virtual environment
 python -m venv venv
 # Activate virtual environment (Linux)
