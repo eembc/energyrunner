@@ -17,7 +17,7 @@
 
 # Introduction
 
-This is the benchmark runner for ULPMark&trade;-ML and tinyMLperf. It is used to collect performance, accuracy, and energy metrics from a device that complies with the firmware from both projects. EEMBC's firmware can be found [here](https://github.com/eembc/testharness-ulpmark-ml), and tinyMLPerf's reference submissions are [here](https://github.com/mlcommons/tiny/).
+This is the repository for the ULPMark-ML benchmark. It includes the benchmark runner for ULPMark&trade;-ML and tinyMLperf, as well as links to training materials, test datsets, the test harness source code, and the Keras neural-nets with citations (trained and ported to mbed+TFLiteMicro). It is used to collect performance, accuracy, and energy metrics from a device that complies with the firmware from both projects. EEMBC's firmware can be found [here](https://github.com/eembc/testharness-ulpmark-ml), and tinyMLPerf's reference submissions are [here](https://github.com/mlcommons/tiny/).
 
 ## Links
 
@@ -25,15 +25,16 @@ This is the benchmark runner for ULPMark&trade;-ML and tinyMLperf. It is used to
 
 Since the runner binaries are over the GitHub limit, they are now hosted off GitHub at the following links:
 
-* [Windows 10](https://www.eembc.org/ulpmark/runner/win10.7z)
-* [macOS](https://www.eembc.org/ulpmark/runner/macos.dmg)
-* [Linux](https://www.eembc.org/ulpmark/runner/linux.tar.gz)
+* [Windows 10](https://www.eembc.org/ulpmark/runner/win10.7z) md5: `5bc6f157eef28ad277c201f46f63cc0e`
+* [macOS](https://www.eembc.org/ulpmark/runner/macos.dmg), md5: `bbed465d144057f1f401ff2256a27d26`
+* [Linux](https://www.eembc.org/ulpmark/runner/linux.tar.gz), md5: `852567b6ad014c5b703f3ab704e34280`
 
-Current version: 3.0.5
+Current version: 3.0.6
 
 <details>
    <summary>View release history</summary>
 
+   * 3.0.6 - 2021-05-14 - Increased detection timeouts (some hubs are just slow, though); added `results.txt` file and log the runer version; cleaned up some error messages when mounted devices are unplugged, or if input stimuli are missing (from re-loading old sessions))
    * 3.0.5 - 2021-05-07 - Added `disable-mute` initializaiton option (see below)
    * 3.0.4 - 2021-04-26 - Reworded the benchmark panel descriptions to be more succinct.
    * 3.0.3 - 2021-04-14 - Fixed iteration check; release LPM01A host control on unmount
