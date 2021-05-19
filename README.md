@@ -17,7 +17,7 @@
 
 # Introduction
 
-This is the repository for the ULPMark-ML benchmark framework. It includes the benchmark runner for ULPMark&trade;-ML and tinyMLperf, as well as links to training materials, test datsets, the test harness source code, and the Keras neural-nets with citations (trained and ported to mbed+TFLiteMicro). It is used to collect performance, accuracy, and energy metrics from a device that complies with the firmware from both projects. EEMBC's firmware can be found [here](https://github.com/eembc/testharness-ulpmark-ml), and tinyMLPerf's reference submissions are [here](https://github.com/mlcommons/tiny/).
+This is the repository for the ULPMark&trade;-ML benchmark framework which is used by [tinyMLPerf](https://github.com/mlcommons/tiny/). This repository contains the benchmark runner, links to training materials, test datsets, the test harness source code, and the Keras neural-nets with citations (as well as copies of the V0.1 tinyMLPerf trained and ported to mbed+TFLiteMicro models). It is used to collect performance, accuracy, and energy metrics from a device that complies with the firmware from both projects. EEMBC's firmware can be found [here](https://github.com/eembc/testharness-ulpmark-ml), and tinyMLPerf's reference submissions are [here](https://github.com/mlcommons/tiny/).
 
 ## Links
 
