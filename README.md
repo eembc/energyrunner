@@ -29,6 +29,9 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 * [macOS](https://www.eembc.org/energybench/redist/?mac), md5: `bbed465d144057f1f401ff2256a27d26`
 * [Linux](https://www.eembc.org/energybench/redist/?linux), md5: `852567b6ad014c5b703f3ab704e34280`
 
+For the Arduino in energy mode:
+* [IO Manager firmware](https://www.eembc.org/energybench/redist/?iom), md5: `ea57d0d71c9a3595e340b03f11fde2a0`
+
 Current version: 3.0.6
 
 <details>
@@ -285,4 +288,4 @@ To submit a score, use the [Submission Link](https://www.eembc.org/ulpmark/ulp-m
 
 # Copyright License
 
-This software is the copyright of EEMBC, and is currently released under Apache 2.0.
+This software is the copyright of EEMBC. The source code on this repo is released under Apache 2.0. The binaries have their own click-throughs.
