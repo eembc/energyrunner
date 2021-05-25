@@ -25,9 +25,9 @@ This is the repository for the ULPMark&trade;-ML benchmark framework which is us
 
 Since the runner binaries are over the GitHub limit, they are now hosted off GitHub at the following links:
 
-* [Windows 10](https://www.eembc.org/ulpmark/runner/win10.7z) md5: `5bc6f157eef28ad277c201f46f63cc0e`
-* [macOS](https://www.eembc.org/ulpmark/runner/macos.dmg), md5: `bbed465d144057f1f401ff2256a27d26`
-* [Linux](https://www.eembc.org/ulpmark/runner/linux.tar.gz), md5: `852567b6ad014c5b703f3ab704e34280`
+* [Windows 10](https://www.eembc.org/energybench/redist/?win) md5: `5bc6f157eef28ad277c201f46f63cc0e`
+* [macOS](https://www.eembc.org/energybench/redist/?mac), md5: `bbed465d144057f1f401ff2256a27d26`
+* [Linux](https://www.eembc.org/energybench/redist/?linux), md5: `852567b6ad014c5b703f3ab704e34280`
 
 Current version: 3.0.6
 
