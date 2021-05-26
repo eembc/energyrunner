@@ -287,7 +287,7 @@ If these work, you now need to check if your DUT RX (and TX) ISR queiing works p
 
 If so, lastly check:
 
-8. Is the baud rate in ~/.eeembc.ini the same baud rate as the DUT?
+8. Is the baud rate in `~/.eembc.ini` the same baud rate as the DUT?
 
 If all of these pass, then please file an issue listing the DUT hardware and the version & OS of the runner.
 
