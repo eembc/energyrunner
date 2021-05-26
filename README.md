@@ -13,6 +13,7 @@
     * [Selecting Energy Mode](#selecting-energy-mode)
 * [Custom Configuration](#custom-configuration)
 * [Debugging Device Auto-detection](#debugging-device-auto-detection)
+    * [Standard debug protocol for device detection issues](#standard-debug-protocol-for-device-detection-issues) 
 * [Bill of Materials](#bill-of-materials)
 
 # Introduction
@@ -270,6 +271,25 @@ When the Runner boots, it scans all of the scans all the serial ports searching 
 Also, every time a USB device changes, the system needs to perform a scan for a long list of hardware. If you have many USB devices connected to your system and this is taking a long time, it is recommended to not swap USB devices while running. Making this worse, some OSes report the USB change notification before the drivers are loaded and the device has booted, which leads to a timeout and "No compatible devices detected."
 
 **TL;DR**: Sometimes a device is not detected when hot-plugged. The solution is to plug in all devices first, wait a few seconds for your device to boot, and then start the runner.
+
+## Standard debug protocol for device detection issues
+
+1. Does "lsusb", or Windows Device manager see the device?
+2. Is there a /dev/tty* or COMx: port associated with it?
+3. Can you connect to the device with "minicom -D... --baud 115200" (or PuTTY, TeraTerm or the Arduino Serial Monitor)?
+4. Can you send the `name%` command and get a response `m-name...`?
+
+If these work, you now need to check if your DUT RX (and TX) ISR queiing works properly. This is necessary because human typing introduces natural delays that allow the FIFOs to drain, whereas the runner sends the commands at computer speed (no delay between characters, just the stop bit). If the UART character read loop and ISR buffering is not implemented properly characters can be lost.
+
+5. In a text editor create a long string of concatenated commands, like: "name%name%name%name%name%name%name%name%"
+6. Copy and paste this string into minicom, we are attempting to overflow the DUT Rx buffer by removing human typing delays
+7. Do all of the commands execute properly?
+
+If so, lastly check:
+
+8. Is the baud rate in ~/.eeembc.ini the same baud rate as the DUT?
+
+If all of these pass, then please file an issue listing the DUT hardware and the version & OS of the runner.
 
 # Bill of Materials
 
