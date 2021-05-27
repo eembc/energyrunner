@@ -285,6 +285,8 @@ If these work, you now need to check if your DUT RX (and TX) ISR queiing works p
 6. Copy and paste this string into minicom, we are attempting to overflow the DUT Rx buffer by removing human typing delays
 7. Do all of the commands execute properly?
 
+Note: nomrally the runner has a handshake (it waits for `m-ready`), and will not send more than one command or 64B without a handshake, but this is just a test to see if the inputs can be buffered while transmitted.
+
 If so, lastly check:
 
 8. Is the baud rate in `~/.eembc.ini` the same baud rate as the DUT?
