@@ -28,7 +28,7 @@ Since the runner binaries are over the GitHub limit, they are now hosted off Git
 
 * [Windows 10](https://www.eembc.org/energybench/redist/?win) md5: `5bc6f157eef28ad277c201f46f63cc0e`
 * [macOS](https://www.eembc.org/energybench/redist/?mac), md5: `bbed465d144057f1f401ff2256a27d26`
-* [Linux](https://www.eembc.org/energybench/redist/?linux), md5: `852567b6ad014c5b703f3ab704e34280`
+* [Ubuntu 18.04](https://www.eembc.org/energybench/redist/?linux), md5: `852567b6ad014c5b703f3ab704e34280` (note Ubuntu 20.04 is currently not working)
 
 For the Arduino in energy mode:
 * [IO Manager firmware](https://www.eembc.org/energybench/redist/?iom), md5: `ea57d0d71c9a3595e340b03f11fde2a0`
