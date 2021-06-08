@@ -2,7 +2,6 @@
 
 * [Introduction](#introduction)
     * [Links](#links)
-    * [Current Status](#current-status)
     * [Performance Mode vs. Energy Mode](#performance-mode-vs-energy-mode)
 * [Hardware Setup](#hardware-setup)
     * [Performance Mode Hardware](#performance-mode-hardware)
@@ -18,7 +17,7 @@
 
 # Introduction
 
-This is the repository for the ULPMark&trade;-ML benchmark framework which is used by [tinyMLPerf](https://github.com/mlcommons/tiny/). This repository contains the benchmark runner, links to training materials, test datsets, the test harness source code, and the Keras neural-nets with citations (as well as copies of the V0.1 tinyMLPerf trained and ported to mbed+TFLiteMicro models). It is used to collect performance, accuracy, and energy metrics from a device that complies with the firmware from both projects. EEMBC's firmware can be found [here](https://github.com/eembc/testharness-ulpmark-ml), and tinyMLPerf's reference submissions are [here](https://github.com/mlcommons/tiny/).
+This is the repository for EEMBCs EnergyRunner&trade; benchmark framework which is used by [MLPerf&trade; Tiny](https://github.com/mlcommons/tiny/). This repository contains the benchmark runner, links to training materials, and test datsets. 
 
 ## Links
 
@@ -54,10 +53,6 @@ There are also two videos to accompany the energy measurement process. [Part one
 
 Training slides are also available in the `doc` folder.
 
-## Current Status
-
-* Awaiting official release vote from EEMBC.
-
 ## Performance Mode vs. Energy Mode
 
 Throughout this document, you will see constant distinctions made between *performance* mode and *energy* mode. The reason why the two collection modes have been separated is due to how the device under test, aka the DUT, behaves in both modes.
@@ -80,9 +75,9 @@ It not possible to switch modes dynamically because some UARTs cannot change bau
 
 ## Performance Mode Hardware
 
-Port the firmware to your device from the test harness based on the EEMBC ULPMark-ML [test harness sample code](https://github.com/eembc/testharness-ulpmark-ml), or the [MLCommons tinyMLPerf reference code](https://github.com/mlcommons/tiny/tree/master/v0.1). Both sample templates are un-implemented, but provide the same serial monitor interface. There are four reference ports (one for each model) that use mbedOS and TFLiteMicro in the tinyMLPerf [reference submissions](https://github.com/mlcommons/tiny/tree/master/v0.1/reference_submissions). This may help give you an idea of what a functional port looks like.
+Port the firmware to your device from the test harness based on the [MLCommons MLPerf Tiny reference code](https://github.com/mlcommons/tiny/tree/master/v0.1). The sample template is un-implemented, you will need to port to your platform. There are four reference ports (one for each model) that use mbedOS and TFLiteMicro in the tinyMLPerf [reference submissions](https://github.com/mlcommons/tiny/tree/master/v0.1/reference_submissions). This may help give you an idea of what a functional port looks like.
 
-Compile as `EE_CFG_ENERGY_MODE=0` (see the `#define` in `monitor/th_api/th_config.h` or `api/submitter_provided.h`). Program the `th_timestamp` function to return the current microseconds since boot time (e.g., with a MCU counter or system timer).
+Compile as `EE_CFG_ENERGY_MODE=0`. Program the `th_timestamp` function to return the current microseconds since boot time (e.g., with a MCU counter or system timer).
 
 Connect the DUT to the system with a USB-TTL or USB-debugger cable so that it appears as serial port to the system at 115200 baud, 8N1. (If using a faster Baud rate, see the configuration section at the end of this document.) To verify this step, you should be able to open a terminal program (such as PuTTY, TeraTerm or the Arduino IDE Serial Monitor), connect to the device, and issue the `name%` command successfully.
 
@@ -92,9 +87,9 @@ Proceed to "Software Setup" below.
 
 ## Energy Mode Hardware
 
-Port the firmware to your device from the test harness based on the EEMBC ULPMark-ML [test harness sample code](https://github.com/eembc/testharness-ulpmark-ml), or the [MLCommons tinyMLPerf reference code](https://github.com/mlcommons/tiny/tree/master/v0.1). Both sample templates are un-implemented, but provide the same serial monitor interface.
+Port the firmware to your device from the test harness based on the [MLCommons MLPerf Tiny reference code](https://github.com/mlcommons/tiny/tree/master/v0.1). The sample template is un-implemented, you will need to port to your platform. There are four reference ports (one for each model) that use mbedOS and TFLiteMicro in the tinyMLPerf [reference submissions](https://github.com/mlcommons/tiny/tree/master/v0.1/reference_submissions). This may help give you an idea of what a functional port looks like.
 
-Compile as `EE_CFG_ENERGY_MODE 1` (see the `#define` in `monitor/th_api/th_config.h` or `api/submitter_provided.h`). Program the `th_timestamp` to generate a falling edge on a GPIO that lasts at least one microsecond (hold time).
+Compile as `EE_CFG_ENERGY_MODE 1`. Program the `th_timestamp` to generate a falling edge on a GPIO that lasts at least one microsecond (hold time).
 
 Since Energy Mode supplies power to the device at a different voltage than the host USB, we need to electrically isolate the DUT. This is accomplished through two pieces of hardware: 1) three level shifters (one each for UART-TX, UART-RX and GPIO timestamp), an Arduino Uno. The Uno is referred to as the "IO Manager" and provides a UART passthrough to/from the host Runner.
 
