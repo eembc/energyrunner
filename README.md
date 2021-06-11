@@ -25,12 +25,12 @@ This is the repository for EEMBCs EnergyRunner&trade; benchmark framework which 
 
 Since the runner binaries are over the GitHub limit, they are now hosted off GitHub at the following links:
 
-* [Windows 10](https://www.eembc.org/energybench/redist/?win) md5: `5bc6f157eef28ad277c201f46f63cc0e`
-* [macOS](https://www.eembc.org/energybench/redist/?mac), md5: `bbed465d144057f1f401ff2256a27d26`
-* [Ubuntu](https://www.eembc.org/energybench/redist/?linux), md5: `852567b6ad014c5b703f3ab704e34280`
+* [Windows 10](https://www.eembc.org/redist/energyrunner/mlperf-tiny/?win) md5: `5bc6f157eef28ad277c201f46f63cc0e`
+* [macOS](https://www.eembc.org/redist/energyrunner/mlperf-tiny/?mac), md5: `bbed465d144057f1f401ff2256a27d26`
+* [Ubuntu](https://www.eembc.org/redist/energyrunner/mlperf-tiny/?linux), md5: `852567b6ad014c5b703f3ab704e34280`
 
 For the Arduino in energy mode:
-* [IO Manager firmware](https://www.eembc.org/energybench/redist/?iom), md5: `ea57d0d71c9a3595e340b03f11fde2a0`
+* [IO Manager firmware](https://www.eembc.org/redist/energyrunner/mlperf-tiny/?iom), md5: `ea57d0d71c9a3595e340b03f11fde2a0`
 
 Current version: 3.0.6
 
