@@ -153,9 +153,11 @@ Under the `Benchmarks and Test Scripts` panel, choose one of the two benchmark p
 
 Take note of the directory (in red) in the center of the screen. This is a work directory that has been created. Copy the `datasets` folder from this repository into this folder. There is a README in this repositories dataset folder explaining the file formats.
 
+**Note 1: You must obtain the input files from the dataset. EEMBC cannot redistribute the input files. Refer to the README.md in the `datasets` folder for more information.**
+
 ![Input file directory](img/input-folder.png)
 
-**The Runner will look in the subfolder defined in the firmware. It knows this because the Runner queries the DUT during initialization and the firmware is configured with the proper response string for each model port.**
+**Note 2: The Runner will look in the subfolder defined in the firmware. It knows this because the Runner queries the DUT during initialization and the firmware is configured with the proper response string for each model port.**
 
 If you see warnings about missing VISA drivers, ignore them. (The code supports VISA test hardware, but it is irrelevant for performance testing. If the VISA scan takes too long, refer to the configuration options at the end of this document.)
 
