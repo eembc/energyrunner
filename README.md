@@ -51,8 +51,6 @@ Current version: 3.0.6
 
 There are also two videos to accompany the energy measurement process. [Part one](https://www.youtube.com/watch?v=4Tvf-GnYHoc) explains how to connect the hardware described in this document. [Part two](https://www.youtube.com/watch?v=fUmDLY7MJxQ) explains how to use the runner to make an energy measurement.
 
-Training slides are also available in the `doc` folder.
-
 ## Performance Mode vs. Energy Mode
 
 Throughout this document, you will see constant distinctions made between *performance* mode and *energy* mode. The reason why the two collection modes have been separated is due to how the device under test, aka the DUT, behaves in both modes.
@@ -298,7 +296,3 @@ If all of these pass, then please file an issue listing the DUT hardware and the
 | Breadboard | Pololu 400pt | [Pololu](https://www.pololu.com/product/351) - [Digikey](https://www.digikey.com/en/products/detail/pololu-corporation/351/11586984) |
 | Hookup Wires | E-Z-Hook | [E-Z-Hook](https://e-z-hook.com/test-leads/pins-plugs-sockets/9110-square-0-025-inch-socket-with-heat-shrink-22-awg-pvc-test-lead-jumper/) - [DigiKey](https://www.digikey.com/en/products/detail/e-z-hook/9110-6-S/2603112) |
 | Headers (extra tall) | Samtec Inc. | [Samtec](https://www.samtec.com/products/mtsw-110-09-s-s-330) - [DigiKey](https://www.digikey.com/en/products/detail/samtec-inc/MTSW-110-09-S-S-330/8162605) |
-
-# Copyright License
-
-This software is the copyright of EEMBC. The source code on this repo is released under Apache 2.0. The binaries have their own click-throughs.
