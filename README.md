@@ -49,7 +49,7 @@ Current version: 3.0.6
 
 ### Tutorial Videos & Slides
 
-There are also two videos to accompany the energy measurement process. [Part one](https://www.youtube.com/watch?v=4Tvf-GnYHoc) explains how to connect the hardware described in this document. [Part two](https://www.youtube.com/watch?v=fUmDLY7MJxQ) explains how to use the runner to make an energy measurement.
+There are also two videos to accompany the energy measurement process. [Part one](https://youtu.be/NwGwthdAjTs) explains how to connect the hardware described in this document. [Part two](https://youtu.be/VYxf8i4nwZM) explains how to use the runner to make an energy measurement.
 
 ## Performance Mode vs. Energy Mode
 
