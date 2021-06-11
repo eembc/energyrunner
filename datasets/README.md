@@ -23,6 +23,4 @@ input file name,total number of classes,predicted classes,window width (bytes),s
 
 Where number of classes is always 2 (anomaly, normal), and 0=normal, 1=anomaly.
 
-# Copyright
-
-All files in this folder are copyright of their respective creators.
+For each entry, the corresponding file must exist in the same directory as the ground-truths file. Copy those files from the dataset to the folder, e.g. `~/eembc/runner/benchmarks/ulp-mlperf/datasets/ad01/` for `ad01`, etc.
