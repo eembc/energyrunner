@@ -23,4 +23,13 @@ input file name,total number of classes,predicted classes,window width (bytes),s
 
 Where number of classes is always 2 (anomaly, normal), and 0=normal, 1=anomaly.
 
-For each entry, the corresponding file must exist in the same directory as the ground-truths file. Copy those files from the dataset to the folder, e.g. `~/eembc/runner/benchmarks/ulp-mlperf/datasets/ad01/` for `ad01`, etc.
+For each entry, the corresponding file must exist in the same directory as the ground-truths file. Copy those files from the dataset to the folder. For example, if you are using the image classification model, `ic01`, do this after completing training:
+
+``` Bash
+% cd tiny/v0.5/training/image_classification
+% mkdir -p ~/eembc/runner/benchmarks/ulp-mlperf/datasets/ic01/
+% cp y_labels.c !$
+% cp perf_dataset/* !$
+```
+
+Each model has it's own method for constructing the input files. Please refer to the [`training`](https://github.com/mlcommons/tiny/tree/master/v0.5/training) folder in the tiny repo the model you are interested in, the README's will explain more.
