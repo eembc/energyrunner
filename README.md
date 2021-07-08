@@ -259,7 +259,7 @@ Other settings are listed here for the sake of completeness:
 
 When the Runner boots, it scans all of the scans all the serial ports searching for compatible firmware. During performance mode, it does this by sending the `name%` command and waiting up to 2 seconds for the port to respond with `m-ready`. If successful, the device will appear in the device console. If it does not show up, it could be due to the following:
 
-1. The Runner's default baud rate does not match the device's baud rate; make sure the baud rates are the same
+1. The Runner's default baud rate does not match the device's baud rate; make sure the baud rates are the same and using 8N1 settings.
 2. The device took too long to reply; minimize the amount of code executing between power-on and `m-ready`.
 3. The USB subsystem did not initialize before the plug-in event was sent; exit the runner, plug the device in, restart the runner
 
@@ -275,6 +275,8 @@ Also, every time a USB device changes, the system needs to perform a scan for a 
 4. Can you send the `name%` command and get a response `m-name...`?
 
 If these work, you now need to check if your DUT RX (and TX) ISR queiing works properly. This is necessary because human typing introduces natural delays that allow the FIFOs to drain, whereas the runner sends the commands at computer speed (no delay between characters, just the stop bit). If the UART character read loop and ISR buffering is not implemented properly characters can be lost.
+
+Remember that the parser in the firmware uses `%` as the terminating character. This means the moment you type `%` the current buffer is sent to the parser in the firmware. If your terminal program sends a carriage return or linefeed, `\r` or `\n`, respectively, it will cause a syntax error. Configured your terminal program to send each character as soon as you type it, or if sending lines, do NOT send CR and/or LF.
 
 5. In a text editor create a long string of concatenated commands, like: "name%name%name%name%name%name%name%name%"
 6. Copy and paste this string into minicom, we are attempting to overflow the DUT Rx buffer by removing human typing delays
