@@ -115,6 +115,8 @@ The yellow line is the output of the DUT UART (Tx), which goes into the Arduino 
 
 Below we see the connectivity to the reference platform, the Nulceo L4R5ZI, which uses the Nucleo 144 board schematic. Remove the IDD jumper and connect VCC to the left side. The UART pins on the ST-LINK header are the default mbed-os UARTTX and UARTRX pins. (Note: the labels don't quite make sense, as RX is connected to UARTTX, and vice versa for TX.) The timestamp should be a `DigitalOut`, and D7 is common for all mbed-os boards that support the Arduino interface. Lastly, there are many grounds on the board, pick one.
 
+**NOTE: Always update the STLink firmware on the nucleo board.** Early versions of the firmware exhibit instability on the retargeted UART, causing the serial port to hang intermittently, requiring the user to unplug and replug the device. M27 is the latest version of the onboard STLink2 firmware (as of July 2021). Use the (STMC32CureProg software)[https://www.st.com/en/development-tools/stm32cubeprog.html] to update the STLink firmware.
+
 ![Connecting to a Nulceo-144 platform](img/hookup-02.jpg)
 
 For debug purposes, the timestamp can also be sent to the Arduino D3 pin. This will cause additional timestamp information to be printed in the log as `io: m-lap-us-\d+`. This can be helpful if there are timestamp issues.
