@@ -292,14 +292,14 @@ The vast majority of the problems have been related to:
 * Using the wrong baud rate (115200 for performance mode, 9600 for energy mode)
 * Not connecting the SDK's `printf` stdout to the UART Tx pin
 * Not connect the UART Rx interrupt to anything
-* Not using having sufficient buffering in the Rx ISR
+* Not having sufficient buffering in the Rx ISR
 
-If using the IO Manager:
+If using the IO Manager in Energy Mode:
 
-* Not wiring the Level Shifters propery
+* Not wiring the Level Shifters properly
 * Not switching to 9600 baud in the firmware 
 
-Please trace the Host Tx, to the Shifter In, to the Shifter Out, to the DUT Rx In; and similarly, from the DUT Tx out, to the Shifter In, to the Shifter Out, to the Host Rx In. You should be able to verify the `name%` prologue out and `m-ready\r\n` final return during device detection when the EnergyRunner scans the serial ports.
+To debug with a logic analyzer, please trace the Host Tx, to the Shifter In, to the Shifter Out, to the DUT Rx In; and similarly, from the DUT Tx out, to the Shifter In, to the Shifter Out, to the Host Rx In. You should be able to verify the `name%` prologue out and `m-ready\r\n` final return during device detection when the EnergyRunner scans the serial ports.
 
 # Bill of Materials
 
