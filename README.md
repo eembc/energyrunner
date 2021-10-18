@@ -263,12 +263,12 @@ Also, every time a USB device changes, the system needs to perform a scan for a 
 
 ## Standard debug protocol for device detection issues
 
-1. Does "lsusb", or Windows Device manager see the device?
+1. Does `lsusb`, or Windows Device manager see the device?
 2. Is there a /dev/tty* or COMx: port associated with it?
 3. Can you connect to the device with "minicom -D... --baud 115200" (or PuTTY, TeraTerm or the Arduino Serial Monitor)?
 4. Can you send the `name%` command and get a response `m-name...`?
 
-If these work, you now need to check if your DUT RX (and TX) ISR queiing works properly. This is necessary because human typing introduces natural delays that allow the FIFOs to drain, whereas the runner sends the commands at computer speed (no delay between characters, just the stop bit). If the UART character read loop and ISR buffering is not implemented properly characters can be lost.
+If these work, you now need to check if your DUT RX (and TX) ISR buffering works properly. This is necessary because human typing introduces natural delays that allow the FIFOs to drain, whereas the runner sends the commands at computer speed (no delay between characters, just the stop bit). If the UART character read loop and ISR buffering is not implemented properly characters can be lost.
 
 Remember that the parser in the firmware uses `%` as the terminating character. This means the moment you type `%` the current buffer is sent to the parser in the firmware. If your terminal program sends a carriage return or linefeed, `\r` or `\n`, respectively, it will cause a syntax error. Configured your terminal program to send each character as soon as you type it, or if sending lines, do NOT send CR and/or LF.
 
@@ -278,11 +278,28 @@ Remember that the parser in the firmware uses `%` as the terminating character. 
 
 Note: nomrally the runner has a handshake (it waits for `m-ready`), and will not send more than one command or 64B without a handshake, but this is just a test to see if the inputs can be buffered while transmitted.
 
-If so, lastly check:
-
 8. Is the baud rate in `~/.eembc.ini` the same baud rate as the DUT?
 
 If all of these pass, then please file an issue listing the DUT hardware and the version & OS of the runner.
+
+## Common Problems
+
+The most common problem is not verifying that the DUT Tx/Rx lines are sending or receiving data. You will need a logic analyzer or scope to verify this. Please verify this before raising an issue.
+
+The vast majority of the problems have been related to:
+
+* Accidentally swapping Tx & Rx pins
+* Using the wrong baud rate (115200 for performance mode, 9600 for energy mode)
+* Not connecting the SDK's `printf` stdout to the UART Tx pin
+* Not connect the UART Rx interrupt to anything
+* Not using having sufficient buffering in the Rx ISR
+
+If using the IO Manager:
+
+* Not wiring the Level Shifters propery
+* Not switching to 9600 baud in the firmware 
+
+Please trace the Host Tx, to the Shifter In, to the Shifter Out, to the DUT Rx In; and similarly, from the DUT Tx out, to the Shifter In, to the Shifter Out, to the Host Rx In. You should be able to verify the `name%` prologue out and `m-ready\r\n` final return during device detection when the EnergyRunner scans the serial ports.
 
 # Bill of Materials
 
