@@ -12,6 +12,7 @@
 * [Custom Configuration](#custom-configuration)
 * [Debugging Device Auto-detection](#debugging-device-auto-detection)
     * [Standard debug protocol for device detection issues](#standard-debug-protocol-for-device-detection-issues) 
+    * [Common problems](#common-problems)
 * [Bill of Materials](#bill-of-materials)
 
 # Introduction
