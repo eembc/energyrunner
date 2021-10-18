@@ -1,7 +1,6 @@
 # Table of Contents
 
 * [Introduction](#introduction)
-    * [Links](#links)
     * [Performance Mode vs. Energy Mode](#performance-mode-vs-energy-mode)
 * [Hardware Setup](#hardware-setup)
     * [Performance Mode Hardware](#performance-mode-hardware)
@@ -23,14 +22,7 @@ This is the repository for EEMBCs EnergyRunner&trade; benchmark framework which 
 
 ### Runner Binaries
 
-Since the runner binaries are over the GitHub limit, they are now hosted off GitHub at the following links:
-
-* [Windows 10](https://www.eembc.org/redist/energyrunner/mlperf-tiny/?win) md5: `5bc6f157eef28ad277c201f46f63cc0e`
-* [macOS](https://www.eembc.org/redist/energyrunner/mlperf-tiny/?mac), md5: `bbed465d144057f1f401ff2256a27d26`
-* [Ubuntu](https://www.eembc.org/redist/energyrunner/mlperf-tiny/?linux), md5: `852567b6ad014c5b703f3ab704e34280`
-
-For the Arduino in energy mode:
-* [IO Manager firmware](https://www.eembc.org/redist/energyrunner/mlperf-tiny/?iom), md5: `ea57d0d71c9a3595e340b03f11fde2a0`
+The runner is now available to EEMBC members or MLPerf Tiny submitters via their working group.
 
 Current version: 3.0.6
 
