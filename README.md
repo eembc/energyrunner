@@ -285,6 +285,8 @@ If all of these pass, then please file an issue listing the DUT hardware and the
 
 ## Common Problems
 
+### UART Device Detection
+
 The most common problem is not verifying that the DUT Tx/Rx lines are sending or receiving data. You will need a logic analyzer or scope to verify this. Please verify this before raising an issue.
 
 The vast majority of the problems have been related to:
@@ -301,6 +303,21 @@ If using the IO Manager in Energy Mode:
 * Not switching to 9600 baud in the firmware 
 
 To debug with a logic analyzer, please trace the Host Tx, to the Shifter In, to the Shifter Out, to the DUT Rx In; and similarly, from the DUT Tx out, to the Shifter In, to the Shifter Out, to the Host Rx In. You should be able to verify the `name%` prologue out and `m-ready\r\n` final return during device detection when the EnergyRunner scans the serial ports.
+
+### Linux Permissions
+
+If using linux, make sure your account is a member of group `dialout`:
+
+```
+% sudo usermod -a -G dialout $USER
+```
+
+You will need to log out for this to take effect.
+
+
+### Linux UDEV
+
+If using a Joulescope, it requires [this UDEV rule](https://github.com/jetperch/pyjoulescope/blob/master/99-joulescope.rules).
 
 # Bill of Materials
 
