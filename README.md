@@ -314,10 +314,18 @@ If using linux, make sure your account is a member of group `dialout`:
 
 You will need to log out for this to take effect.
 
-
 ### Linux UDEV
 
 If using a Joulescope, it requires [this UDEV rule](https://github.com/jetperch/pyjoulescope/blob/master/99-joulescope.rules).
+
+If using the R&S VISA drivers for the N6705 on Linux (Ubuntu 18 & 20), create this rule:
+
+```
+% sudo su
+% echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="0957", ATTR{idProduct}=="0f07", GROUP="users", MODE="0666"' > /etc/udev/rules.d/99-keysight.rules
+% sudo udevadm control --reload-rules && udevadm trigger
+% exit
+```
 
 # Bill of Materials
 
