@@ -6,7 +6,7 @@
     * [Performance Mode Hardware](#performance-mode-hardware)
     * [Energy Mode Hardware](#energy-mode-hardware)
 * [Software Setup](#software-setup)
-    * [Download and Start the Host UI Runner](#download-and-start-the-host-ui-runner)
+    * [Start the Host UI Runner](#start-the-host-ui-runner)
     * [Selecting Performance Mode](#selecting-performance-mode)
     * [Selecting Energy Mode](#selecting-energy-mode)
 * [Custom Configuration](#custom-configuration)
@@ -130,7 +130,7 @@ Proceed to "Software Setup" below.
 
 # Software Setup
 
-## Download and Start the Host UI Runner
+## Start the Host UI Runner
 
 There are three OS releases: macOS, Ubuntu, and Win10. The macOS version is provided as a `dmg` file, Windows as `7z` and Linux as a `tar.gz`. Open the application by double-clicking the icon in macOS, running `EEMBC Benchmark Framework.exe` in windows, or `benchmark-framework` in Linux. if everything booted properly this window appears:
 
