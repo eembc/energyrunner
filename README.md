@@ -23,13 +23,17 @@ This is the repository for EEMBCs EnergyRunner&trade; benchmark framework which 
 
 ### Runner Binaries
 
-The runner is now available to EEMBC members or MLPerf Tiny submitters via their working group.
+The runner is available **only** to EEMBC members, MLCommons members, or MLPerf Tiny submitters via their working group.
 
-Current version: 3.0.6
+Current version: 3.0.10
 
 <details>
    <summary>View release history</summary>
-
+   
+   * 3.0.10 - 2021-11-15 - Bugfixes: MLPerf tiny resets input file if device or model changes; CLI filename spaces; serial scan name% check fail; renaming; reloading "user" sessions from script fails; silent mount fail if a desired device is already claimed; N6705 traces can now be zoomed; race bug in Benchmark init fixed.
+   * 3.0.9 - 2021-06-20 - Enabled cut/paste for macOS; fixed JS110 ring-buffer issue truncating last 65K samples
+   * 3.0.8 - 2021-06-19 - No fixes relevant to MLPerf Tiny
+   * 3.0.7 - 2021-06-17 - Additional reporting message when unmounting errors occur, increased default USB pid/vid boot timeout for non-DUT hardware
    * 3.0.6 - 2021-05-14 - Increased detection timeouts (some hubs are just slow, though); added `results.txt` file and log the runer version; cleaned up some error messages when mounted devices are unplugged, or if input stimuli are missing (from re-loading old sessions))
    * 3.0.5 - 2021-05-07 - Added `disable-mute` initializaiton option (see below)
    * 3.0.4 - 2021-04-26 - Reworded the benchmark panel descriptions to be more succinct.
