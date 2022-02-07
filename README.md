@@ -74,7 +74,7 @@ It not possible to switch modes dynamically because some UARTs cannot change bau
 
 ## Performance Mode Hardware
 
-Port the firmware to your device from the test harness based on the [MLCommons MLPerf Tiny reference code](https://github.com/mlcommons/tiny/tree/master/v0.1). The sample template is un-implemented, you will need to port to your platform. There are four reference ports (one for each model) that use mbedOS and TFLiteMicro in the tinyMLPerf [reference submissions](https://github.com/mlcommons/tiny/tree/master/v0.1/reference_submissions). This may help give you an idea of what a functional port looks like.
+Port the firmware to your device from the test harness based on the [MLCommons MLPerf Tiny reference code](https://github.com/mlcommons/tiny/tree/master/). The sample template is un-implemented, you will need to port to your platform. There are four reference ports (one for each model) that use mbedOS and TFLiteMicro in the tinyMLPerf [reference submissions](https://github.com/mlcommons/tiny/tree/master/benchmark/reference_submissions). This may help give you an idea of what a functional port looks like.
 
 Compile as `EE_CFG_ENERGY_MODE=0`. Program the `th_timestamp` function to return the current microseconds since boot time (e.g., with a MCU counter or system timer).
 
@@ -86,7 +86,7 @@ Proceed to "Software Setup" below.
 
 ## Energy Mode Hardware
 
-Port the firmware to your device from the test harness based on the [MLCommons MLPerf Tiny reference code](https://github.com/mlcommons/tiny/tree/master/v0.1). The sample template is un-implemented, you will need to port to your platform. There are four reference ports (one for each model) that use mbedOS and TFLiteMicro in the tinyMLPerf [reference submissions](https://github.com/mlcommons/tiny/tree/master/v0.1/reference_submissions). This may help give you an idea of what a functional port looks like.
+Port the firmware to your device from the test harness based on the [MLCommons MLPerf Tiny reference code](https://github.com/mlcommons/tiny/tree/master/). The sample template is un-implemented, you will need to port to your platform. There are four reference ports (one for each model) that use mbedOS and TFLiteMicro in the tinyMLPerf [reference submissions](https://github.com/mlcommons/tiny/tree/master/benchmark/reference_submissions). This may help give you an idea of what a functional port looks like.
 
 Compile as `EE_CFG_ENERGY_MODE 1`. Program the `th_timestamp` to generate a falling edge on a GPIO that lasts at least one microsecond (hold time).
 
