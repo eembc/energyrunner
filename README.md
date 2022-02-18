@@ -310,7 +310,11 @@ If using the IO Manager in Energy Mode:
 * Not wiring the Level Shifters properly
 * Not switching to 9600 baud in the firmware 
 
-To debug with a logic analyzer, please trace the Host Tx, to the Shifter In, to the Shifter Out, to the DUT Rx In; and similarly, from the DUT Tx out, to the Shifter In, to the Shifter Out, to the Host Rx In. You should be able to verify the `name%` prologue out and `m-ready\r\n` final return during device detection when the EnergyRunner scans the serial ports.
+If you are not seeing the power-on message from the DUT during "Initialize", the EMON will time-out because it only waits 5000 ms for the DUT to boot.
+
+The first debug step should be to verify that when power is applied to the DUT from the EMON that you see the Tx output pin print the prologue message. This is the first thing the DUT does in main.c. The message ends with "m-ready\r\n" which lets the GUI know it may proceed to the next step.
+
+If that message does not appear, your UART is not configured properly. If it does appear on the DUT Tx, trace that signal out of the level shifter and into the DUT. Is there a wiring problem across the level shifter? Then trace to the IO Manager. You should see the power-on message at the input to the IO Manager. This is by far the most common problem: bad wires, wire connected to the wrong breadboard hole, wire connected to the wrong GPIO, etc.
 
 ### Linux Permissions
 
