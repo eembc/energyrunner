@@ -339,6 +339,16 @@ If using the R&S VISA drivers for the N6705 on Linux (Ubuntu 18 & 20), create th
 % exit
 ```
 
+### Dropped EMON Samples
+
+If you see a message like the following:
+
+```
+00195.677 emon: e-[Dropped more than 0.1% of packets]
+```
+
+This most likely means you are using a Joulescope on a Mac M1. The current version of the GUI does not support M1 silicon natively, so the USB code has to go through a translation, which slows it down considerably. It is recommended to use an x86 Mac, Linux, or Windows machine. This is currently [issue #21](https://github.com/eembc/energyrunner/issues/21).
+
 # Bill of Materials
 
 | Component | Product | Links |
