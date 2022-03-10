@@ -349,6 +349,10 @@ If you see a message like the following:
 
 This most likely means you are using a Joulescope on a Mac M1. The current version of the GUI does not support M1 silicon natively, so the USB code has to go through a translation, which slows it down considerably. It is recommended to use an x86 Mac, Linux, or Windows machine. This is currently [issue #21](https://github.com/eembc/energyrunner/issues/21).
 
+### Fractured Messages from the IO Manager
+
+When measuring energy, the DUT is electrically isolated from the system, and uses the IO Manager to relay messages from its UART to the host. The IO Manager is half-duplex, which means if it is sending commands to the DUT, and the DUT is sending back data at the same time, there will be corruption. Typically this will appear as the DUT reporting an error like `e-?<partialtext>` where the *partial text* is whatever part of the transmitted message was seen by the DUT. The run scripts inside the GUI are specifically designed to use a send/acknowledge protocol to avoid contention. However, if you have added debug messages to your DUT, these might interfere, especially if they occur after the acknowledge `m-ready\r\n` from the DUT. If you are seeing these errors, it is most likely related to debug message placement, try moving them before the acknowledge message.
+
 # Bill of Materials
 
 | Component | Product | Links |
