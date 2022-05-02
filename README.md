@@ -17,7 +17,7 @@
 
 # Introduction
 
-This is the repository for EEMBCs EnergyRunner&trade; benchmark framework which is used by [MLPerf&trade; Tiny](https://github.com/mlcommons/tiny/). This repository contains the benchmark runner and links to training materials. 
+This is the repository for EEMBCs EnergyRunner&reg; benchmark framework which is used by [MLPerf&trade; Tiny](https://github.com/mlcommons/tiny/). This repository contains the benchmark runner and links to training materials. 
 
 ## Links
 
