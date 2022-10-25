@@ -27,7 +27,9 @@ The source code for the MLPerf Tiny benchmark is at the [MLCommons GitHub Page](
 
 ### Runner Binaries
 
-The runner is available **only** to EEMBC members, MLCommons members, or MLPerf Tiny submitters via their working group. Either an EEMBC or MLCommons license agreement is required. The download is available on the EEMBC website to these licensees only. If you have a license, but need help downloading, please email [EEMBC support](mailto:support@eembc.org).
+The runner binary is sponsored by MLCommons and is available to anyone after a click-through agreement.
+
+It can be found [on the EEMBC website](https://www.eembc.org/energyrunner/mlperftiny/).
 
 Current version: 3.0.10
 
